@@ -1,27 +1,193 @@
 <!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>KuoWei Tseng | Portfolio</title>
-  </head>
-  <body style="font-family: -apple-system, system-ui; margin: 40px; line-height: 1.6;">
-    <h1>KuoWei Tseng</h1>
-    <p>Tseng0318 · he/him</p>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>KuoWei Tseng | Portfolio</title>
+  <style>
+    :root { color-scheme: light; }
+    body { font-family: -apple-system, system-ui, Segoe UI, Roboto, Helvetica, Arial, sans-serif; margin: 0; line-height: 1.6; }
+    .container { max-width: 920px; margin: 0 auto; padding: 40px 20px; }
+    .top { display: flex; flex-wrap: wrap; gap: 14px; align-items: baseline; justify-content: space-between; }
+    h1 { margin: 0; font-size: 32px; }
+    .subtitle { color: #444; margin-top: 6px; }
+    .pill { display: inline-block; padding: 6px 10px; border: 1px solid #ddd; border-radius: 999px; font-size: 14px; color: #333; }
+    .btns { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+    .btn {
+      display: inline-block; text-decoration: none;
+      padding: 10px 14px; border-radius: 10px; border: 1px solid #ddd;
+      color: #111;
+    }
+    .btn.primary { border-color: #111; }
+    .grid { display: grid; grid-template-columns: 1fr; gap: 18px; margin-top: 26px; }
+    @media (min-width: 860px) { .grid { grid-template-columns: 1.1fr 0.9fr; } }
+    .card { border: 1px solid #e6e6e6; border-radius: 14px; padding: 18px; }
+    .card h2 { margin: 0 0 10px 0; font-size: 18px; }
+    .muted { color: #555; }
+    ul { margin: 10px 0 0 20px; padding: 0; }
+    .section { margin-top: 22px; }
+    .k { font-weight: 600; }
+    .row { margin-top: 8px; }
+    .small { font-size: 14px; }
+    footer { margin-top: 28px; padding-top: 18px; border-top: 1px solid #eee; color: #666; }
+    a { color: inherit; }
+  </style>
+</head>
 
-    <h2>About</h2>
-    <p>Electrical Engineering student interested in robotics, embedded systems, and AI/ML.</p>
+<body>
+  <div class="container">
+    <div class="top">
+      <div>
+        <h1>KuoWei Tseng</h1>
+        <div class="subtitle">
+          Electrical Engineering Student · Automation & Control · AI/ML
+        </div>
+        <div class="row">
+          <span class="pill">Tseng0318</span>
+          <span class="pill">he/him</span>
+          <span class="pill">Calgary, Canada</span>
+        </div>
 
-    <h2>Projects</h2>
-    <ul>
-      <li>Autonomous rover (Pi 5 + LiDAR + camera)</li>
-      <li>Rust vs non-rust classifier (transfer learning)</li>
-    </ul>
+        <div class="btns">
+          <a class="btn primary" href="/Resume.pdf">Resume (PDF)</a>
+          <a class="btn" href="/publication.pdf">Publication (PDF)</a>
+          <a class="btn" href="https://www.zerogcoating.com/">Capstone Project Website</a>
+          <a class="btn" href="https://github.com/Tseng0318">GitHub</a>
+          <!-- Replace with your real LinkedIn URL -->
+          <a class="btn" href="https://www.linkedin.com/">LinkedIn</a>
+        </div>
 
-    <h2>Links</h2>
-    <ul>
-      <li><a href="https://github.com/Tseng0318">GitHub</a></li>
-      <li><a href="https://www.linkedin.com/">LinkedIn</a></li>
-    </ul>
-  </body>
+        <div class="section muted small">
+          <div><span class="k">Email:</span> kuowei.tseng@ucalgary.ca</div>
+          <div><span class="k">Phone:</span> +1 (705) 977 4561</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h2>About</h2>
+        <p class="muted">
+          I am an Electrical Engineering student focused on embedded systems, automation/control,
+          and applied machine learning for real-world sensing and robotics.
+        </p>
+
+        <div class="section">
+          <h2>Projects</h2>
+
+          <div class="row">
+            <div class="k">Autonomous Surface Inspection & Coating Rover (Capstone)</div>
+            <div class="muted small">In progress · Expected completion: April 2026 · Website: <a href="https://www.zerogcoating.com/">zerogcoating.com</a></div>
+            <ul>
+              <li>Designing and evaluating a self-supervised learning pipeline to pretrain a vision model on unlabeled datasets for general-purpose feature learning.</li>
+              <li>Pretraining a shared visual backbone as a foundation model and fine-tuning on limited labeled data for surface-condition classification.</li>
+              <li>Developing an autonomous preset-path coverage algorithm using LiDAR and wheel encoder feedback for full-surface inspection.</li>
+              <li>Implementing PID-based closed-loop motion control to improve positioning accuracy.</li>
+              <li>Integrating LiDAR sensing and wheel encoders on Raspberry Pi 5 for obstacle-aware navigation and robust serial timeout/buffer logic.</li>
+            </ul>
+          </div>
+
+          <div class="row" style="margin-top:14px;">
+            <div class="k">TrashAuto — Autonomous Garbage Collection Rover</div>
+            <ul>
+              <li>Built a two-stage ML pipeline to classify garbage vs non-garbage.</li>
+              <li>Integrated LiDAR, ultrasonic sensors, wheel encoders, camera, and microcontroller control for autonomous operation.</li>
+              <li>Optimized real-time inference on Raspberry Pi with event-driven triggering to reduce compute load.</li>
+              <li>Designed a dual-rail power system (5V logic, 12V motors) for electrical stability.</li>
+            </ul>
+          </div>
+
+          <div class="row" style="margin-top:14px;">
+            <div class="k">Discipline & Focus Alarm — Embedded System Design</div>
+            <ul>
+              <li>Designed a dual-microcontroller alarm system in C with RTC, audio amplification, and MOSFET-based power control.</li>
+              <li>Migrated from Arduino UNO to AVR128DB28 to improve compactness and efficiency; designed enclosure in Fusion 360.</li>
+            </ul>
+          </div>
+
+          <div class="row" style="margin-top:14px;">
+            <div class="k">FPGA Reaction Time Game</div>
+            <ul>
+              <li>Implemented FSM-based control logic, debouncing, clock division, and seven-segment display multiplexing in SystemVerilog.</li>
+            </ul>
+          </div>
+
+          <div class="row" style="margin-top:14px;">
+            <div class="k">AM Receiver System Design</div>
+            <ul>
+              <li>Designed and simulated an AM receiver in Multisim; selected RC time constants, diode characteristics, and filtering/amplification stages.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Education</h2>
+        <div class="row">
+          <div class="k">University of Calgary</div>
+          <div class="muted small">BSc Electrical Engineering (Digital Engineering Minor) · CGPA: 3.3/4.0</div>
+          <div class="muted small">Expected graduation: April 2026</div>
+        </div>
+
+        <div class="section">
+          <h2>Certificate</h2>
+          <div class="row">
+            <div class="k">PLC Technician Certificate I (In progress)</div>
+            <div class="muted small">George Brown College (Online) · Expected completion: April 2026</div>
+            <ul>
+              <li>Ladder Logic programming and industrial control fundamentals</li>
+              <li>Industrial I/O interfacing, timers, counters, sequencing logic</li>
+              <li>Basic HMI integration and PLC troubleshooting practices</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>Skills</h2>
+          <div class="row small"><span class="k">Programming:</span> Python (NumPy, Pandas, Matplotlib, PyTorch, TensorFlow, fastai), Java, C, SystemVerilog, MATLAB, Git</div>
+          <div class="row small"><span class="k">Embedded & Control:</span> PLC programming, Raspberry Pi, Arduino, PIC microcontroller, Assembly language</div>
+          <div class="row small"><span class="k">Hardware & Simulation:</span> Cadence, LTspice, Multisim, Fusion 360</div>
+        </div>
+
+        <div class="section">
+          <h2>Work Experience</h2>
+          <div class="row">
+            <div class="k">Lision Technology Inc. — R&D Assistant Intern</div>
+            <div class="muted small">Taoyuan, Taiwan · 06/2024 – 08/2024</div>
+            <ul>
+              <li>Tested and characterized discrete semiconductor devices (Zener, Schottky, TVS, rectifier diodes).</li>
+              <li>Collected/analyzed measurement data using Python and Excel to support device validation.</li>
+              <li>Assisted in verifying IC performance against design specifications and datasheets.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>Publication</h2>
+          <div class="row">
+            <div class="k">Feasibility of recent peptide therapy for ischemic stroke: a comprehensive exploration</div>
+            <div class="muted small">
+              Kuo-Feng Tseng, Kuo-Wei Tseng, et al. Journal of Pharmacological Sciences (2026).
+            </div>
+            <div class="muted small">
+              Contribution: data analysis and computational methodology.
+            </div>
+            <div class="row small">
+              PDF: <a href="/publication.pdf">publication.pdf</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <footer class="small">
+      © <span id="y"></span> KuoWei Tseng · Built with GitHub Pages
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
 </html>
