@@ -4,176 +4,386 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>KuoWei Tseng | Portfolio</title>
+
   <style>
-    :root { color-scheme: light; }
-    body { font-family: -apple-system, system-ui, Segoe UI, Roboto, Helvetica, Arial, sans-serif; margin: 0; line-height: 1.6; }
-    .container { max-width: 920px; margin: 0 auto; padding: 40px 20px; }
-    .top { display: flex; flex-wrap: wrap; gap: 14px; align-items: baseline; justify-content: space-between; }
-    h1 { margin: 0; font-size: 32px; }
-    .subtitle { color: #444; margin-top: 6px; }
-    .pill { display: inline-block; padding: 6px 10px; border: 1px solid #ddd; border-radius: 999px; font-size: 14px; color: #333; }
-    .btns { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
-    .btn {
-      display: inline-block; text-decoration: none;
-      padding: 10px 14px; border-radius: 10px; border: 1px solid #ddd;
-      color: #111;
+    :root {
+      color-scheme: light;
+      --bg: #ffffff;
+      --text: #111111;
+      --muted: #555555;
+      --border: #e7e7e7;
+      --card: #ffffff;
+      --shadow: 0 10px 24px rgba(0,0,0,0.06);
+
+      --accent: #111111;         /* primary button */
+      --accentText: #ffffff;
+      --pillBg: #f6f6f6;
     }
-    .btn.primary { border-color: #111; }
-    .grid { display: grid; grid-template-columns: 1fr; gap: 18px; margin-top: 26px; }
-    @media (min-width: 860px) { .grid { grid-template-columns: 1.1fr 0.9fr; } }
-    .card { border: 1px solid #e6e6e6; border-radius: 14px; padding: 18px; }
-    .card h2 { margin: 0 0 10px 0; font-size: 18px; }
-    .muted { color: #555; }
-    ul { margin: 10px 0 0 20px; padding: 0; }
-    .section { margin-top: 22px; }
-    .k { font-weight: 600; }
-    .row { margin-top: 8px; }
-    .small { font-size: 14px; }
-    footer { margin-top: 28px; padding-top: 18px; border-top: 1px solid #eee; color: #666; }
+
+    body {
+      font-family: -apple-system, system-ui, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 44px 20px;
+    }
+
+    .header {
+      display: grid;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .nameRow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 34px;
+      letter-spacing: -0.3px;
+    }
+
+    .subtitle {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .pills {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 6px 10px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-size: 14px;
+      background: var(--pillBg);
+    }
+
+    .card {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: var(--card);
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .contactGrid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    @media (min-width: 860px) {
+      .header { grid-template-columns: 1.15fr 0.85fr; }
+      .contactGrid { grid-template-columns: 1fr 1fr; }
+    }
+
+    .k {
+      font-weight: 600;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .btnRow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      color: var(--text);
+      background: #fff;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    /* Stand-out resume button */
+    .btnPrimary {
+      background: var(--accent);
+      color: var(--accentText);
+      border-color: var(--accent);
+      box-shadow: 0 10px 18px rgba(0,0,0,0.18);
+      font-weight: 650;
+    }
+    .btnPrimary:hover { transform: translateY(-1px); }
+
+    .btn:hover { box-shadow: 0 10px 18px rgba(0,0,0,0.10); }
+
+    h2 {
+      margin: 0 0 10px 0;
+      font-size: 18px;
+      letter-spacing: -0.2px;
+    }
+
+    h3 {
+      margin: 0 0 6px 0;
+      font-size: 16px;
+      letter-spacing: -0.1px;
+    }
+
+    .section {
+      margin-top: 22px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+      margin-top: 18px;
+    }
+    @media (min-width: 860px) {
+      .grid { grid-template-columns: 1.15fr 0.85fr; }
+    }
+
+    ul {
+      margin: 10px 0 0 18px;
+      padding: 0;
+    }
+
+    .project {
+      padding: 14px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: #fff;
+    }
+
+    .projectMeta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .hr {
+      margin: 22px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    footer {
+      margin-top: 26px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
     a { color: inherit; }
   </style>
 </head>
 
 <body>
   <div class="container">
-    <div class="top">
+
+    <!-- TOP: Name + Contact (clean layout) -->
+    <div class="header">
       <div>
-        <h1>KuoWei Tseng</h1>
-        <div class="subtitle">
-          Electrical Engineering Student · Automation & Control · AI/ML
+        <div class="nameRow">
+          <div>
+            <h1>KuoWei Tseng</h1>
+            <div class="subtitle">Electrical Engineering Student · Automation & Control · AI/ML</div>
+          </div>
         </div>
-        <div class="row">
+
+        <div class="pills">
           <span class="pill">Tseng0318</span>
           <span class="pill">he/him</span>
           <span class="pill">Calgary, Canada</span>
         </div>
 
-        <div class="btns">
-          <a class="btn primary" href="/Resume.pdf">Resume (PDF)</a>
+        <!-- Stand-out Resume button + key links -->
+        <div class="btnRow">
+          <a class="btn btnPrimary" href="/Resume.pdf" aria-label="Download Resume PDF">⬇ Download Resume (PDF)</a>
           <a class="btn" href="/publication.pdf">Publication (PDF)</a>
-          <a class="btn" href="https://www.zerogcoating.com/">Capstone Project Website</a>
+          <a class="btn" href="https://www.zerogcoating.com/">Project Website: ZeroG Coating</a>
           <a class="btn" href="https://github.com/Tseng0318">GitHub</a>
           <!-- Replace with your real LinkedIn URL -->
           <a class="btn" href="https://www.linkedin.com/">LinkedIn</a>
         </div>
 
-        <div class="section muted small">
-          <div><span class="k">Email:</span> kuowei.tseng@ucalgary.ca</div>
-          <div><span class="k">Phone:</span> +1 (705) 977 4561</div>
+        <div class="section">
+          <div class="card">
+            <h2>Contact</h2>
+            <div class="contactGrid">
+              <div><span class="k">Email:</span> <span class="muted">kuowei.tseng@ucalgary.ca</span></div>
+              <div><span class="k">Phone:</span> <span class="muted">+1 (705) 977 4561</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right column quick summary -->
+      <div class="card">
+        <h2>Summary</h2>
+        <p class="muted" style="margin:0;">
+          I build embedded and robotics systems that combine sensing, control, and applied ML.
+          Current focus: autonomous inspection + coating workflows using LiDAR, encoders, and vision.
+        </p>
+
+        <div class="section" style="margin-top:14px;">
+          <h2>Core Skills</h2>
+          <div class="muted" style="font-size:14px;">
+            <div><span class="k">Programming:</span> Python, C, SystemVerilog, MATLAB, Git</div>
+            <div><span class="k">Embedded:</span> Raspberry Pi, microcontrollers, UART/I²C, sensors</div>
+            <div><span class="k">Tools:</span> Fusion 360, LTspice, Multisim, Cadence (learning)</div>
+            <div><span class="k">ML:</span> PyTorch/fastai, inference pipelines, model evaluation</div>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="grid">
+    <!-- FEATURED PROJECTS (metrics-oriented) -->
+    <div class="section">
       <div class="card">
-        <h2>About</h2>
-        <p class="muted">
-          I am an Electrical Engineering student focused on embedded systems, automation/control,
-          and applied machine learning for real-world sensing and robotics.
-        </p>
+        <h2>Featured Projects</h2>
 
-        <div class="section">
-          <h2>Projects</h2>
-
-          <div class="row">
-            <div class="k">Autonomous Surface Inspection & Coating Rover (Capstone)</div>
-            <div class="muted small">In progress · Expected completion: April 2026 · Website: <a href="https://www.zerogcoating.com/">zerogcoating.com</a></div>
-            <ul>
-              <li>Designing and evaluating a self-supervised learning pipeline to pretrain a vision model on unlabeled datasets for general-purpose feature learning.</li>
-              <li>Pretraining a shared visual backbone as a foundation model and fine-tuning on limited labeled data for surface-condition classification.</li>
-              <li>Developing an autonomous preset-path coverage algorithm using LiDAR and wheel encoder feedback for full-surface inspection.</li>
-              <li>Implementing PID-based closed-loop motion control to improve positioning accuracy.</li>
-              <li>Integrating LiDAR sensing and wheel encoders on Raspberry Pi 5 for obstacle-aware navigation and robust serial timeout/buffer logic.</li>
-            </ul>
+        <div class="project">
+          <h3>Autonomous Surface Inspection & Coating Rover (Capstone)</h3>
+          <div class="projectMeta">
+            <span>In progress · Target: Apr 2026</span>
+            <span>·</span>
+            <span><a href="https://www.zerogcoating.com/">zerogcoating.com</a></span>
           </div>
-
-          <div class="row" style="margin-top:14px;">
-            <div class="k">TrashAuto — Autonomous Garbage Collection Rover</div>
-            <ul>
-              <li>Built a two-stage ML pipeline to classify garbage vs non-garbage.</li>
-              <li>Integrated LiDAR, ultrasonic sensors, wheel encoders, camera, and microcontroller control for autonomous operation.</li>
-              <li>Optimized real-time inference on Raspberry Pi with event-driven triggering to reduce compute load.</li>
-              <li>Designed a dual-rail power system (5V logic, 12V motors) for electrical stability.</li>
-            </ul>
-          </div>
-
-          <div class="row" style="margin-top:14px;">
-            <div class="k">Discipline & Focus Alarm — Embedded System Design</div>
-            <ul>
-              <li>Designed a dual-microcontroller alarm system in C with RTC, audio amplification, and MOSFET-based power control.</li>
-              <li>Migrated from Arduino UNO to AVR128DB28 to improve compactness and efficiency; designed enclosure in Fusion 360.</li>
-            </ul>
-          </div>
-
-          <div class="row" style="margin-top:14px;">
-            <div class="k">FPGA Reaction Time Game</div>
-            <ul>
-              <li>Implemented FSM-based control logic, debouncing, clock division, and seven-segment display multiplexing in SystemVerilog.</li>
-            </ul>
-          </div>
-
-          <div class="row" style="margin-top:14px;">
-            <div class="k">AM Receiver System Design</div>
-            <ul>
-              <li>Designed and simulated an AM receiver in Multisim; selected RC time constants, diode characteristics, and filtering/amplification stages.</li>
-            </ul>
-          </div>
+          <ul>
+            <li><span class="k">Autonomy + control:</span> Implemented preset-path coverage with LiDAR + wheel encoders and PID control for positioning accuracy.</li>
+            <li><span class="k">ML strategy:</span> Designing a self-supervised pretraining workflow (foundation backbone → task head fine-tune) to improve generalization with limited labels.</li>
+            <li><span class="k">Impact (replace with your numbers):</span> Improved inspection coverage from <span class="k">[X%]</span> to <span class="k">[Y%]</span> and reduced missed regions by <span class="k">[Z%]</span> during test runs.</li>
+          </ul>
         </div>
+
+        <div style="height:12px;"></div>
+
+        <div class="project">
+          <h3>TrashAuto — Autonomous Garbage Collection Rover</h3>
+          <div class="projectMeta">
+            <span>Raspberry Pi 5 · LiDAR · Ultrasonic · Encoders · Camera · MCU</span>
+          </div>
+          <ul>
+            <li><span class="k">Perception pipeline:</span> Built a two-stage classifier (filter → fine classification) with event-driven triggering to avoid redundant inference.</li>
+            <li><span class="k">Systems integration:</span> Combined LiDAR target detection, encoder-based approach control, ultrasonic confirmation, then ML classification → pickup actuation.</li>
+            <li><span class="k">Impact (replace with your numbers):</span> Increased correct pickup decisions by <span class="k">[X%]</span> and reduced false triggers by <span class="k">[Y%]</span> using debounce + confidence gating.</li>
+          </ul>
+        </div>
+
+        <div style="height:12px;"></div>
+
+        <div class="project">
+          <h3>Rust vs Non-Rust Classifier</h3>
+          <div class="projectMeta">
+            <span>Transfer learning · fastai/PyTorch</span>
+          </div>
+          <ul>
+            <li><span class="k">Modeling:</span> Trained a corrosion classifier using transfer learning and probability thresholds for reliable decisions.</li>
+            <li><span class="k">Deployment focus:</span> Designed the workflow to be compatible with edge inference constraints (latency + retries on low confidence).</li>
+            <li><span class="k">Impact (replace with your numbers):</span> Achieved <span class="k">[Val Acc %]</span> validation accuracy and reduced uncertain predictions by <span class="k">[X%]</span> with retry logic.</li>
+          </ul>
+        </div>
+
+        <p class="muted" style="margin-top:14px; font-size:13px;">
+          Note: Replace the bracketed metrics (e.g., [X%]) with your real results once you confirm them.
+        </p>
+      </div>
+    </div>
+
+    <!-- MAIN CONTENT GRID -->
+    <div class="grid">
+
+      <div class="card">
+        <h2>Additional Projects</h2>
+
+        <div class="project">
+          <h3>Discipline & Focus Alarm — Embedded System Design</h3>
+          <ul>
+            <li>Designed a dual-microcontroller alarm system in C with RTC timing, audio amplification, and MOSFET-based power control.</li>
+            <li>Migrated from Arduino UNO to AVR128DB28; designed enclosure in Fusion 360.</li>
+          </ul>
+        </div>
+
+        <div style="height:12px;"></div>
+
+        <div class="project">
+          <h3>FPGA Reaction Time Game</h3>
+          <ul>
+            <li>Implemented FSM control, debouncing, clock division, and seven-segment multiplexing in SystemVerilog.</li>
+          </ul>
+        </div>
+
+        <div style="height:12px;"></div>
+
+        <div class="project">
+          <h3>AM Receiver System Design</h3>
+          <ul>
+            <li>Designed and simulated an AM receiver in Multisim; selected RC time constants and filtering/amplification stages.</li>
+          </ul>
+        </div>
+
       </div>
 
       <div class="card">
         <h2>Education</h2>
-        <div class="row">
+        <div class="muted" style="font-size:14px;">
           <div class="k">University of Calgary</div>
-          <div class="muted small">BSc Electrical Engineering (Digital Engineering Minor) · CGPA: 3.3/4.0</div>
-          <div class="muted small">Expected graduation: April 2026</div>
+          <div>BSc Electrical Engineering (Digital Engineering Minor)</div>
+          <div>CGPA: 3.3/4.0 · Expected: Apr 2026</div>
         </div>
 
         <div class="section">
           <h2>Certificate</h2>
-          <div class="row">
+          <div class="muted" style="font-size:14px;">
             <div class="k">PLC Technician Certificate I (In progress)</div>
-            <div class="muted small">George Brown College (Online) · Expected completion: April 2026</div>
-            <ul>
-              <li>Ladder Logic programming and industrial control fundamentals</li>
-              <li>Industrial I/O interfacing, timers, counters, sequencing logic</li>
-              <li>Basic HMI integration and PLC troubleshooting practices</li>
-            </ul>
+            indicated
+            <div>George Brown College (Online) · Expected: Apr 2026</div>
           </div>
         </div>
 
         <div class="section">
-          <h2>Skills</h2>
-          <div class="row small"><span class="k">Programming:</span> Python (NumPy, Pandas, Matplotlib, PyTorch, TensorFlow, fastai), Java, C, SystemVerilog, MATLAB, Git</div>
-          <div class="row small"><span class="k">Embedded & Control:</span> PLC programming, Raspberry Pi, Arduino, PIC microcontroller, Assembly language</div>
-          <div class="row small"><span class="k">Hardware & Simulation:</span> Cadence, LTspice, Multisim, Fusion 360</div>
-        </div>
-
-        <div class="section">
           <h2>Work Experience</h2>
-          <div class="row">
+          <div class="muted" style="font-size:14px;">
             <div class="k">Lision Technology Inc. — R&D Assistant Intern</div>
-            <div class="muted small">Taoyuan, Taiwan · 06/2024 – 08/2024</div>
+            <div>Taoyuan, Taiwan · 06/2024 – 08/2024</div>
             <ul>
               <li>Tested and characterized discrete semiconductor devices (Zener, Schottky, TVS, rectifier diodes).</li>
               <li>Collected/analyzed measurement data using Python and Excel to support device validation.</li>
-              <li>Assisted in verifying IC performance against design specifications and datasheets.</li>
+              <li>Assisted in verifying IC performance against specifications and datasheets.</li>
             </ul>
           </div>
         </div>
 
         <div class="section">
           <h2>Publication</h2>
-          <div class="row">
+          <div class="muted" style="font-size:14px;">
             <div class="k">Feasibility of recent peptide therapy for ischemic stroke: a comprehensive exploration</div>
-            <div class="muted small">
-              Kuo-Feng Tseng, Kuo-Wei Tseng, et al. Journal of Pharmacological Sciences (2026).
-            </div>
-            <div class="muted small">
-              Contribution: data analysis and computational methodology.
-            </div>
-            <div class="row small">
-              PDF: <a href="/publication.pdf">publication.pdf</a>
+            <div>Kuo-Feng Tseng, Kuo-Wei Tseng, et al. Journal of Pharmacological Sciences (2026).</div>
+            <div style="margin-top:6px;">
+              <a class="btn" href="/publication.pdf">Open Publication (PDF)</a>
             </div>
           </div>
         </div>
@@ -181,9 +391,10 @@
       </div>
     </div>
 
-    <footer class="small">
+    <footer>
       © <span id="y"></span> KuoWei Tseng · Built with GitHub Pages
     </footer>
+
   </div>
 
   <script>
