@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>KuoWei Tseng | Engineering Portfolio</title>
+
+  <style>
+    body {
+      font-family: -apple-system, system-ui, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      margin: 0;
+      color: #111;
+      background: #fff;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 48px 20px;
+    }
+
+    h1 { margin: 0; font-size: 34px; }
+    h2 { margin-top: 36px; font-size: 20px; }
+    h3 { margin: 0; font-size: 16px; }
+
+    .muted { color: #555; }
+
+    .pill {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #f5f5f5;
+      font-size: 14px;
+      margin-right: 8px;
+    }
+
+    .top {
+      display: grid;
+      gap: 20px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .btn {
+      padding: 10px 16px;
+      border-radius: 10px;
+      text-decoration: none;
+      border: 1px solid #ddd;
+      color: #111;
+      font-size: 14px;
+    }
+
+    .btn.primary {
+      background: #111;
+      color: #fff;
+      border-color: #111;
+      font-weight: 600;
+    }
+
+    .project {
+      border: 1px solid #e7e7e7;
+      border-radius: 14px;
+      padding: 18px;
+      margin-top: 16px;
+    }
+
+    ul { margin: 10px 0 0 18px; }
+
+    footer {
+      margin-top: 48px;
+      padding-top: 16px;
+      border-top: 1px solid #eee;
+      font-size: 13px;
+      color: #666;
+    }
+
+    a { color: inherit; }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <!-- Header / Identity -->
+    <div class="top">
+      <div>
+        <h1>KuoWei Tseng</h1>
+        <div class="muted">
+          Electrical engineering student interested in autonomous systems,
+          embedded control, and analog / mixed-signal circuit design.
+        </div>
+
+        <div style="margin-top:12px;">
+          <span class="pill">Tseng0318</span>
+          <span class="pill">he/him</span>
+          <span class="pill">Calgary, Canada</span>
+        </div>
+
+        <div class="buttons">
+          <a class="btn primary" href="/Resume.pdf">Download Resume</a>
+          <a class="btn" href="https://www.zerogcoating.com/">Capstone Project</a>
+          <a class="btn" href="/Feasibility%20of%20recent%20peptide%20therapy.pdf">Publication</a>
+          <a class="btn" href="https://github.com/Tseng0318">GitHub</a>
+          <!-- replace with your real LinkedIn -->
+          <a class="btn" href="https://www.linkedin.com/">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- About -->
+    <h2>About</h2>
+    <p class="muted">
+      I enjoy building systems where hardware, software, and physical behavior intersect.
+      My recent work spans autonomous robotic platforms and a self-directed study of analog
+      integrated circuit design using Cadence Virtuoso and Spectre, with an emphasis on
+      developing intuition rather than following cookbook designs.
+    </p>
+
+    <!-- Featured Projects -->
+    <h2>Featured Projects</h2>
+
+    <div class="project">
+      <h3>Autonomous Surface Inspection & Coating Rover</h3>
+      <p class="muted">
+        Capstone project · <a href="https://www.zerogcoating.com/">ZeroG Coating</a>
+      </p>
+      <ul>
+        <li>Designing a mobile robotic system for autonomous surface inspection and coating.</li>
+        <li>Using LiDAR and wheel encoders to execute repeatable coverage paths with closed-loop control.</li>
+        <li>Exploring self-supervised learning to pretrain a vision backbone before task-specific fine-tuning.</li>
+      </ul>
+    </div>
+
+    <div class="project">
+      <h3>TrashAuto — Autonomous Garbage Collection Rover</h3>
+      <ul>
+        <li>Built a multi-sensor rover integrating LiDAR, ultrasonic sensing, wheel encoders, and vision.</li>
+        <li>Implemented staged perception and decision logic to reduce unnecessary inference.</li>
+        <li>Focused on system robustness and repeatability rather than raw model accuracy.</li>
+      </ul>
+    </div>
+
+    <div class="project">
+      <h3>Cadence Virtuoso Self-Learning — Analog IC Design Foundations</h3>
+      <p class="muted">
+        Independent study focused on tool fluency and analog intuition.
+      </p>
+      <ul>
+        <li>Learning end-to-end Cadence Virtuoso and Spectre workflows: schematic capture, simulation setup, and result interpretation.</li>
+        <li>Studying and simulating fundamental analog building blocks including bias networks, current mirrors, differential pairs, and single-stage amplifiers.</li>
+        <li>Using DC, AC, and transient analyses to understand gain, bandwidth, stability, and non-ideal device behavior.</li>
+      </ul>
+    </div>
+
+    <!-- Publication -->
+    <h2>Publication</h2>
+    <p class="muted">
+      <strong>Feasibility of recent peptide therapy for ischemic stroke</strong><br>
+      Journal of Pharmacological Sciences (2026)<br>
+      <a href="/Feasibility%20of%20recent%20peptide%20therapy.pdf">View paper (PDF)</a>
+    </p>
+
+    <!-- Contact -->
+    <h2>Contact</h2>
+    <p class="muted">
+      Email: kuowei.tseng@ucalgary.ca<br>
+      Phone: +1 (705) 977 4561
+    </p>
+
+    <footer>
+      © <span id="y"></span> KuoWei Tseng · GitHub Pages
+    </footer>
+
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
