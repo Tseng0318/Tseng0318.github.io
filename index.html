@@ -92,8 +92,8 @@
       <div>
         <h1>KuoWei Tseng</h1>
         <div class="muted">
-          Electrical engineering student interested in autonomous systems,
-          embedded control, and analog / mixed-signal circuit design.
+          Electrical engineering student interested in AI & ML, mixed-signal circuit design,
+          robotics, embedded system, and automation.
         </div>
 
         <div style="margin-top:12px;">
@@ -116,45 +116,66 @@
     <!-- About -->
     <h2>About</h2>
     <p class="muted">
-      I enjoy building systems where hardware, software, and physical behavior intersect.
-      My recent work spans autonomous robotic platforms and a self-directed study of analog
-      integrated circuit design using Cadence Virtuoso and Spectre, with an emphasis on
-      developing intuition rather than following cookbook designs.
+      I enjoy building and verifying systems where hardware, software, and physical behavior intersect.
+      My recent project spans autonomous robotic platforms and a self-directed study of analog
+      integrated circuit design using Cadence Virtuoso, with an emphasis on
+      developing intuition.
     </p>
 
     <!-- Featured Projects -->
     <h2>Featured Projects</h2>
 
     <div class="project">
-      <h3>Autonomous Surface Inspection & Coating Rover</h3>
+      <h3>Autonomous Surface Inspection & Coating Rover (Capstone)</h3>
       <p class="muted">
-        Capstone project · <a href="https://www.zerogcoating.com/">ZeroG Coating</a>
+        AI-driven edge-deployed corrosion detection system · <a href="https://www.zerogcoating.com/">ZeroG Coating</a>
       </p>
       <ul>
-        <li>Designing a mobile robotic system for autonomous surface inspection and coating.</li>
-        <li>Using LiDAR and wheel encoders to execute repeatable coverage paths with closed-loop control.</li>
-        <li>Exploring self-supervised learning to pretrain a vision backbone before task-specific fine-tuning.</li>
+        <li>Fine-tuning a pretrained ResNet-18 backbone for surface condition classification under real-world lighting and texture variability.</li>
+        <li>Replacing standard softmax decision rules with centroid-distance–based embedding comparison to enable unknown-class rejection.</li>
+        <li>Applying model compression techniques (pruning and quantization) to reduce memory demand and promote efficiency for edge device.
+        <li>Integrating LiDAR, IMU, wheel encoders to execute repeatable coverage paths with closed-loop control.</li>
       </ul>
     </div>
 
+  <div class="project">
+    <h3>FPGA Design — SystemVerilog Implementation</h3>
+    <p class="muted">
+      Digital logic design and hardware verification on FPGA
+    </p>
+    <ul>
+      <li>Designed a finite state machine in SystemVerilog to control game flow and timing behavior.</li>
+      <li>Implemented clock division and debouncing logic to ensure stable user input handling.</li>
+      <li>Developed seven-segment display multiplexing logic for real-time output display.</li>
+      <li>Verified functionality through simulation.</li>
+      <li>Considered timing behavior and state transitions to ensure reliable hardware execution.</li>
+    </ul>
+  </div>
+    
     <div class="project">
       <h3>TrashAuto — Autonomous Garbage Collection Rover</h3>
+      <p class="muted">
+        Multi-sensor robotic system with staged perception pipeline
       <ul>
-        <li>Built a multi-sensor rover integrating LiDAR, ultrasonic sensing, wheel encoders, and vision.</li>
-        <li>Implemented staged perception and decision logic to reduce unnecessary inference.</li>
-        <li>Focused on system robustness and repeatability rather than raw model accuracy.</li>
+        <li>Designed and implemented a two staged CNN pipeline for perception and decision logic to reduce false prediction.</li>
+        <li>Used LiDAR for object detection, followed by vision-based classification for verification.</li>
+        <li>Integrated ultrasonic sensing for height validation to prevent misclassification of tall non-garbage objects.</li>
+        <li>Implemented closed-loop navigation using wheel encoders and IMU feedback for precise approach and stopping control.</li>
+        <li>Designed the complete rover chassis and pickup mechanism in Fusion 360, accounting for sensor placement, stability, and actuation constraints.</li>
       </ul>
     </div>
 
     <div class="project">
-      <h3>Cadence Virtuoso Self-Learning — Analog IC Design Foundations</h3>
+      <h3>Cadence Virtuoso Self-Learning — Analog IC Design with TSMC PDK</h3>
       <p class="muted">
         Independent study focused on tool fluency and analog intuition.
       </p>
       <ul>
-        <li>Learning end-to-end Cadence Virtuoso and Spectre workflows: schematic capture, simulation setup, and result interpretation.</li>
-        <li>Studying and simulating fundamental analog building blocks including bias networks, current mirrors, differential pairs, and single-stage amplifiers.</li>
+        <li>Learning end-to-end Cadence Virtuoso and Spectre workflows: schematic, simulation setup, and result interpretation.</li>
+        <li>Studying and simulating fundamental analog building blocks including bias networks, current mirrors, differential pairs, amplifiers, and oscillator.</li>
         <li>Using DC, AC, and transient analyses to understand gain, bandwidth, stability, and non-ideal device behavior.</li>
+        <li>Verifying circuit behavior using a TSMC CMOS process design kit to evaluate realistic device characteristics rather than idealized models.</li>
+        <li>Analyzing device-level parameters such as threshold voltage, and parasitic capacitances to understand real-world performance limits.</li>
       </ul>
     </div>
 
@@ -170,7 +191,6 @@
     <h2>Contact</h2>
     <p class="muted">
       Email: kuowei.tseng@ucalgary.ca<br>
-      Phone: +1 (705) 977 4561
     </p>
 
     <footer>
