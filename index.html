@@ -70,6 +70,41 @@
       margin-top: 16px;
     }
 
+    .tag {
+      display: inline-block;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: #f0f0f0;
+      font-size: 12px;
+      color: #444;
+      margin: 6px 4px 0 0;
+    }
+
+    .metrics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 12px 0 8px;
+    }
+
+    .metric {
+      background: #f7f7f7;
+      border: 1px solid #e5e5e5;
+      border-radius: 8px;
+      padding: 6px 12px;
+      font-size: 13px;
+    }
+
+    .metric span {
+      font-weight: 600;
+      color: #111;
+    }
+
+    .metric small {
+      color: #777;
+      margin-left: 4px;
+    }
+
     ul { margin: 10px 0 0 18px; }
 
     footer {
@@ -91,9 +126,8 @@
     <div class="top">
       <div>
         <h1>KuoWei Tseng</h1>
-        <div class="muted">
-          Electrical engineering student interested in AI & ML, mixed-signal circuit design,
-          robotics, embedded system, and automation.
+        <div class="muted" style="margin-top: 6px;">
+          ML engineer · edge deployment · OOD robustness · embedded systems
         </div>
 
         <div style="margin-top:12px;">
@@ -106,8 +140,7 @@
           <a class="btn" href="https://www.zerogcoating.com/">Capstone Project</a>
           <a class="btn" href="/Feasibility%20of%20recent%20peptide%20therapy.pdf">Publication</a>
           <a class="btn" href="https://github.com/Tseng0318">GitHub</a>
-          <!-- replace with your real LinkedIn -->
-          <a class="btn" href="https://www.linkedin.com/">LinkedIn</a>
+          <a class="btn" href="https://www.linkedin.com/in/kuowei-tseng-071079220">LinkedIn</a>
         </div>
       </div>
     </div>
@@ -115,17 +148,16 @@
     <!-- About -->
     <h2>About</h2>
     <p class="muted">
-      Hi, you can call me David. I am currently completing my undergraduate degree at the University of Calgary, majoring in Electrical Engineering with a minor in Digital Engineering. 
-      My academic interests span both electrical engineering and machine learning, with a strong emphasis on interdisciplinary research.
-      On the machine learning side, I have applied AI methods to biotechnology-focused problems, including predictive modeling and data-driven analysis in biological contexts. 
-      This work involves applying machine learning techniques to extract meaningful patterns from structured and unstructured biological data. 
-      Aside from the research paper I've already published. I am also interested in uncertainty-aware modeling using transformers and building systems that is reliable and scientifically interpretable.
-
-
-      
-      Separately, my engineering projects focus on robotics and embedded systems. I have worked on autonomous robotic platforms that integrate multi-sensor perception, real-time control, and edge-deployed machine learning models. 
-      In parallel, I have experience with FPGA design, digital logic implementation, and a self-directed study of analog integrated circuit design using Cadence Virtuoso, with an emphasis on developing device-level intuition and understanding transistor-level behavior.
-      My long-term goal is to pursue interdisciplinary research that bridges intelligent algorithms with biotechnology.
+      Hi, I'm David — an Electrical Engineering undergrad at the University of Calgary (Digital Engineering minor, CGPA 3.3) finishing my degree and looking for ML engineering roles.
+    </p>
+    <p class="muted">
+      My ML work centres on reliability: I build systems that know what they don't know. My capstone produced an edge-deployed corrosion detector with cosine-similarity OOD rejection (95.6% accuracy, 0.873 AUROC), and a parallel research project benchmarked SimCLR, SupCon, BYOL, and ViT on the same task — finding that self-supervised representations outperform supervised ones under domain shift and enable early-exit inference that cuts ~83.5% of samples at maintained accuracy.
+    </p>
+    <p class="muted">
+      On the hardware side I've built autonomous rovers integrating LiDAR, IMU, encoders, and edge-deployed models on Jetson and Raspberry Pi platforms, designed RTL in SystemVerilog on Artix-7 FPGAs, and self-studied analog IC design using Cadence Virtuoso with a TSMC PDK. I also hold an R&D internship background in semiconductor device characterisation from Lision Technology in Taiwan.
+    </p>
+    <p class="muted">
+      Longer term I want to work on ML systems that are both scientifically interpretable and deployable at the edge — bridging intelligent algorithms with real physical constraints.
     </p>
 
     <!-- Featured Projects -->
@@ -133,64 +165,128 @@
 
     <div class="project">
       <h3>Autonomous Surface Inspection & Coating Rover (Capstone)</h3>
-      <p class="muted">
+      <p class="muted" style="margin: 6px 0 0;">
         AI-driven edge-deployed corrosion detection system · <a href="https://www.zerogcoating.com/">ZeroG Coating</a>
       </p>
+      <div class="metrics">
+        <div class="metric"><span>95.6%</span><small>test accuracy</small></div>
+        <div class="metric"><span>0.873</span><small>OOD AUROC</small></div>
+        <div class="metric"><span>94%</span><small>collision avoidance</small></div>
+        <div class="metric"><span>~2.5 hr</span><small>runtime</small></div>
+      </div>
+      <div>
+        <span class="tag">ResNet-18</span>
+        <span class="tag">OOD rejection</span>
+        <span class="tag">model compression</span>
+        <span class="tag">LiDAR</span>
+        <span class="tag">Raspberry Pi 5</span>
+        <span class="tag">Jetson Orin</span>
+      </div>
       <ul>
-        <li>Fine-tuning a pretrained ResNet18 backbone for surface condition classification under real-world lighting and texture variability.</li>
-        <li>Replacing standard softmax decision rules with centroid-distance–based embedding comparison to enable unknown-class rejection.</li>
-        <li>Applying model compression techniques (pruning and quantization) to reduce memory demand and promote efficiency for edge device.</li>
-        <li>Designed an autonomous algorithm for complete enviromental inspection.</li>
-        <li>Implementing the return to based alogorithm using arUco and camera module.</li>
-        <li>Integrating LiDAR, IMU, wheel encoders to execute repeatable coverage paths with closed-loop control.</li>
-        <li>Ensure sensor accuracy by designing a PID control for wheel encoders and IMU.</li>
+        <li>Fine-tuned a pretrained ResNet-18 backbone for surface condition classification under real-world lighting and texture variability.</li>
+        <li>Replaced standard softmax with cosine similarity–based embedding comparison against class prototypes, enabling unknown-class rejection.</li>
+        <li>Applied pruning and quantization to fit the model on edge hardware with no significant accuracy loss.</li>
+        <li>Designed a real-time perception-control loop: LiDAR-based detection → vision-based classification → actuation.</li>
+        <li>Built a multi-microcontroller architecture (Raspberry Pi 5 + Pi Pico + ESP32) separating AI inference from real-time actuation.</li>
+        <li>Implemented encoder-based motion control achieving ~1.46° drift per meter; PID-tuned wheel encoders and IMU for closed-loop coverage paths.</li>
+        <li>Implemented return-to-base using ArUco markers and a camera module.</li>
       </ul>
     </div>
 
-  <div class="project">
-    <h3>FPGA Design — SystemVerilog Implementation</h3>
-    <p class="muted">
-      Digital logic design and verification on a Digilent Basys 3 Artix-7 FPGA board
-    </p>
-    <ul>
-      <li>Designed a finite state machine in SystemVerilog to control game flow and timing behavior.</li>
-      <li>Implemented clock division and debouncing logic to ensure stable user input handling.</li>
-      <li>Developed seven-segment display multiplexing logic for real-time output display.</li>
-      <li>Verified functionality through simulation.</li>
-      <li>Considered timing behavior and state transitions to ensure reliable hardware execution.</li>
-      <li>Created a testbench for verification of RTL modules to ensure time constraints and avoid system failure.</li>
-    </ul>
-  </div>
-    
-  <div class="project">
-    <h3>TrashAuto — Autonomous Garbage Collection Rover</h3>
-    <img src="images/trashauto_fusion_render.png"
-       alt="Fusion 360 design of TrashAuto rover"
-       style="max-width: 420px; width: 100%; display: block; margin: 18px auto; border-radius: 12px;">
-    <p class="muted">
-      Group project for ENEL400 course. Multi-sensor autonomous robotic platform integrating AI, control, and mechanical design.
-  </p>
+    <div class="project">
+      <h3>Representation Learning & OOD Robustness Study</h3>
+      <p class="muted" style="margin: 6px 0 0;">
+        Comparative study of supervised and self-supervised learning for corrosion detection under domain shift
+      </p>
+      <div class="metrics">
+        <div class="metric"><span>0.839</span><small>feature AUROC (SimCLR)</small></div>
+        <div class="metric"><span>~83.5%</span><small>early exits</small></div>
+        <div class="metric"><span>~91.8%</span><small>acc at early exit</small></div>
+        <div class="metric"><span>~68%</span><small>OOD rejection rate</small></div>
+      </div>
+      <div>
+        <span class="tag">SimCLR</span>
+        <span class="tag">SupCon</span>
+        <span class="tag">BYOL</span>
+        <span class="tag">ViT</span>
+        <span class="tag">early-exit inference</span>
+        <span class="tag">low-rank factorization</span>
+      </div>
       <ul>
-        <li>Designed and implemented a two-stage CNN pipeline (YOLO and ResNet34) to reduce false prediction in real world application.</li>
-        <li>Fine-tuned on a ResNet34 backbone with custom dataset. </li>
-        <li>Used LiDAR for object detection, followed by vision-based classification.</li>
-        <li>Integrated ultrasonic sensing for height validation to prevent misclassification of tall non-garbage objects.</li>
-        <li>Assist with closed-loop navigation using wheel encoders and IMU feedback for precise approach and stopping control.</li>
-        <li>Assist in the complete rover chassis and pickup mechanism in Fusion 360.</li>
+        <li>Benchmarked SimCLR, SupCon, BYOL, and ViT on a shared ResNet-18 backbone for corrosion detection, evaluating in-distribution accuracy, OOD detection (AUROC), and domain shift robustness (grayscale testing).</li>
+        <li>Implemented prototype-based OOD detection using cosine similarity; SimCLR achieved 0.839 feature AUROC and ~68% OOD rejection rate.</li>
+        <li>Demonstrated that self-supervised SimCLR outperforms supervised models under domain shift — a practically significant result for real-world deployment.</li>
+        <li>Built an early-exit inference framework achieving ~83.5% early exits at ~91.8% accuracy (SimCLR), substantially reducing average inference cost.</li>
+        <li>Applied low-rank factorization as a compression technique and evaluated its effect on accuracy-efficiency trade-offs.</li>
+      </ul>
+    </div>
+
+    <div class="project">
+      <h3>TrashAuto — Autonomous Garbage Collection Rover</h3>
+      <img src="images/trashauto_fusion_render.png"
+         alt="Fusion 360 design of TrashAuto rover"
+         style="max-width: 420px; width: 100%; display: block; margin: 18px auto; border-radius: 12px;">
+      <p class="muted" style="margin: 6px 0 0;">
+        Group project for ENEL400. Multi-sensor autonomous robotic platform integrating AI, control, and mechanical design.
+      </p>
+      <div class="metrics">
+        <div class="metric"><span>91.7%</span><small>real-world accuracy</small></div>
+      </div>
+      <div>
+        <span class="tag">YOLO</span>
+        <span class="tag">ResNet-34</span>
+        <span class="tag">LiDAR</span>
+        <span class="tag">ultrasonic</span>
+        <span class="tag">IMU</span>
+        <span class="tag">Fusion 360</span>
+      </div>
+      <ul>
+        <li>Designed a two-stage CNN pipeline (YOLO detection → ResNet-34 classification) to reduce false positives; reached 91.7% real-world accuracy.</li>
+        <li>Fine-tuned ResNet-34 on a custom dataset.</li>
+        <li>Used LiDAR for object detection and ultrasonic sensing for height validation to prevent misclassification of tall non-garbage objects.</li>
+        <li>Optimised real-time inference on Raspberry Pi using event-driven triggering to reduce computation load.</li>
+        <li>Assisted with closed-loop navigation using wheel encoders and IMU feedback for precise approach and stopping control.</li>
+        <li>Assisted in designing the complete rover chassis and pickup mechanism in Fusion 360.</li>
+      </ul>
+    </div>
+
+    <div class="project">
+      <h3>FPGA Design — SystemVerilog Implementation</h3>
+      <p class="muted" style="margin: 6px 0 0;">
+        Digital logic design and verification on a Digilent Basys 3 Artix-7 FPGA board
+      </p>
+      <div>
+        <span class="tag">SystemVerilog</span>
+        <span class="tag">FSM</span>
+        <span class="tag">RTL</span>
+        <span class="tag">testbench</span>
+        <span class="tag">Artix-7</span>
+      </div>
+      <ul>
+        <li>Designed a modular system structured around a top-level FSM coordinating game logic, LED control, and display output.</li>
+        <li>Implemented clock division and hardware debouncing for stable push-button input handling.</li>
+        <li>Developed seven-segment display multiplexing logic for real-time output.</li>
+        <li>Created a testbench verifying FSM state transitions, clock dividers, and multiplexed display logic.</li>
       </ul>
     </div>
 
     <div class="project">
       <h3>Cadence Virtuoso Self-Learning — Analog IC Design with TSMC PDK</h3>
-      <p class="muted">
-        Independent study focused on tool fluency and analog intuition.
+      <p class="muted" style="margin: 6px 0 0;">
+        Independent study focused on tool fluency and device-level intuition.
       </p>
+      <div>
+        <span class="tag">Cadence Virtuoso</span>
+        <span class="tag">Spectre</span>
+        <span class="tag">TSMC PDK</span>
+        <span class="tag">DC/AC/transient</span>
+      </div>
       <ul>
-        <li>Learning end-to-end Cadence Virtuoso and Spectre workflows: schematic, simulation setup, and result interpretation.</li>
-        <li>Studying and simulating fundamental analog building blocks including bias networks, current mirrors, differential pairs, amplifiers, and oscillator.</li>
-        <li>Using DC, AC, and transient analyses to understand gain, bandwidth, stability, and non-ideal device behavior.</li>
-        <li>Verifying circuit behavior using a TSMC CMOS process design kit to evaluate realistic device characteristics rather than idealized models.</li>
-        <li>Analyzing device-level parameters such as threshold voltage, and parasitic capacitances to understand real-world performance limits.</li>
+        <li>Learning end-to-end Cadence Virtuoso and Spectre workflows: schematic entry, simulation setup, and result interpretation.</li>
+        <li>Simulating fundamental analog building blocks: bias networks, current mirrors, differential pairs, amplifiers, and oscillators.</li>
+        <li>Using DC, AC, and transient analyses to understand gain, bandwidth, stability, and non-ideal device behaviour.</li>
+        <li>Verifying circuit behaviour using a TSMC CMOS PDK to evaluate realistic device characteristics rather than idealised models.</li>
+        <li>Analysing threshold voltage, parasitic capacitances, and other device-level parameters to develop real-world performance intuition.</li>
       </ul>
     </div>
 
@@ -198,31 +294,32 @@
     <h2>Publication</h2>
     <p class="muted">
       <strong>Feasibility of recent peptide therapy for ischemic stroke</strong><br>
-      Journal of Pharmacological Sciences (2026)<br>
+      K.-F. Tseng, <strong>K.-W. Tseng</strong>, et al. · Journal of Pharmacological Sciences (2026)<br>
+      Contribution: data analysis and computational methodology<br>
       <a href="/Feasibility%20of%20recent%20peptide%20therapy.pdf">View paper (PDF)</a>
     </p>
-    
+
     <!-- Certifications -->
     <h2>Certifications</h2>
     <ul class="muted">
-    <li>
-      PyTorch for Deep Learning Specialization — DeepLearning.AI (2026) ·
-      <a href="https://coursera.org/share/b2d0db8baf1482e9a027b7cebd3f6c3a">View certificate</a>
-    </li>
-    <li>
-      Natural Language Processing with Sequence Models — DeepLearning.AI (2026) ·
-      <a href="https://www.coursera.org/account/accomplishments/records/EBM5C0WLAO6V">View certificate</a>
-    </li>
-    <li>
-      Transformer Models and BERT Model — Google Cloud (2026) ·
-      <a href="https://coursera.org/share/4a948500aff685fd2395cf91b6f2eae9">View certificate</a>
-    </li>
+      <li>
+        PyTorch for Deep Learning Specialization — DeepLearning.AI (2026) ·
+        <a href="https://coursera.org/share/b2d0db8baf1482e9a027b7cebd3f6c3a">View certificate</a>
+      </li>
+      <li>
+        Natural Language Processing with Sequence Models — DeepLearning.AI (2026) ·
+        <a href="https://www.coursera.org/account/accomplishments/records/EBM5C0WLAO6V">View certificate</a>
+      </li>
+      <li>
+        Transformer Models and BERT Model — Google Cloud (2026) ·
+        <a href="https://coursera.org/share/4a948500aff685fd2395cf91b6f2eae9">View certificate</a>
+      </li>
     </ul>
 
     <!-- Contact -->
     <h2>Contact</h2>
     <p class="muted">
-      Email: kuowei.tseng@ucalgary.ca<br>
+      Email: kuowei.tseng@ucalgary.ca
     </p>
 
     <footer>
