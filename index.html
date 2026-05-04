@@ -250,6 +250,37 @@
       </ul>
     </div>
 
+<div class="project">
+      <h3>Positional Encoding Ablation for Neural Machine Translation</h3>
+      <p class="muted" style="margin: 6px 0 0;">
+        Controlled head-to-head comparison of LSTM, sinusoidal Transformer, and RoPE Transformer on English→Portuguese and English→Mandarin
+      </p>
+      <div class="metrics">
+        <div class="metric"><span>+0.031</span><small>ROUGE-1 vs sinusoidal</small></div>
+        <div class="metric"><span>0.6817</span><small>RoPE ROUGE-1 (En→Pt)</small></div>
+        <div class="metric"><span>0 extra</span><small>parameters</small></div>
+        <div class="metric"><span>2</span><small>language pairs</small></div>
+      </div>
+      <div>
+        <span class="tag">PyTorch</span>
+        <span class="tag">RoPE</span>
+        <span class="tag">Transformer</span>
+        <span class="tag">seq2seq</span>
+        <span class="tag">LSTM baseline</span>
+        <span class="tag">ROUGE-1</span>
+        <span class="tag">MPS / M1</span>
+      </div>
+      <ul>
+        <li>Implemented RoPE from scratch (half-split convention with cached cos/sin buffers) inside custom encoder/decoder layers mirroring the PyTorch <code>nn.Transformer</code> API, applied to Q/K in self-attention only and intentionally omitted from cross-attention.</li>
+        <li>Matched the sinusoidal and RoPE Transformers on width, depth, FFN size, head count, and parameter budget so the only intended difference was the positional encoding scheme.</li>
+        <li>Built a shared training and evaluation harness (linear LR warmup, AdamW, gradient clipping, masked NLL, early stopping with best-checkpoint restore) reused across all three models for a fair comparison.</li>
+        <li>Observed RoPE improving ROUGE-1 from 0.6505 to 0.6817 on English→Portuguese (200 validation pairs, greedy decoding, single seed) at identical parameter count.</li>
+        <li>Identified a clear qualitative failure mode on character-level Mandarin: the sinusoidal model produced repetition loops (e.g. "哥哥哥哥…") that RoPE largely avoided, indicating better positional behavior on long, structurally distant outputs.</li>
+        <li>Documented limitations explicitly — single seed, ROUGE-1 only, small corpus, no KV cache during decoding — to keep the claim scoped to what the experiment actually supports.</li>
+      </ul>
+    </div>
+
+    
     <div class="project">
       <h3>FPGA Design — SystemVerilog Implementation</h3>
       <p class="muted" style="margin: 6px 0 0;">
