@@ -222,6 +222,39 @@
     </div>
 
     <div class="project">
+  <h3>Transformer Language Model from Scratch</h3>
+  <p class="muted" style="margin: 6px 0 0;">
+    End-to-end implementation of a decoder-only Transformer, byte-level BPE tokenizer, Rotary Positional Embedding (RoPE) and custom language-model training pipeline in PyTorch
+  </p>
+  <div class="metrics">
+    <div class="metric"><span>Custom</span><small>AdamW optimizer</small></div>
+    <div class="metric"><span>Byte-level</span><small>BPE tokenizer</small></div>
+    <div class="metric"><span>RoPE</span><small>positional encoding</small></div>
+    <div class="metric"><span>MPS</span><small>Apple Silicon training</small></div>
+  </div>
+  <div>
+    <span class="tag">PyTorch</span>
+    <span class="tag">Transformer</span>
+    <span class="tag">BPE</span>
+    <span class="tag">RoPE</span>
+    <span class="tag">RMSNorm</span>
+    <span class="tag">SwiGLU</span>
+    <span class="tag">AdamW</span>
+    <span class="tag">language modeling</span>
+  </div>
+  <ul>
+    <li>Developed a decoder-only Transformer language model from scratch using PyTorch, without relying on built-in Transformer modules or high-level training frameworks.</li>
+    <li>Implemented multi-head causal self-attention, residual connections, pre-normalization, RMSNorm, SwiGLU feed-forward layers, and Rotary Positional Embeddings.</li>
+    <li>Built a byte-level Byte Pair Encoding tokenizer supporting learned merge operations, special-token handling, text pre-tokenization, encoding, and UTF-8 decoding.</li>
+    <li>Implemented core neural-network operations, including linear and embedding layers, numerically stable softmax, scaled dot-product attention, and cross-entropy loss.</li>
+    <li>Created a custom AdamW optimizer with bias-corrected moment estimates, decoupled weight decay, cosine learning-rate decay, linear warm-up, and gradient clipping.</li>
+    <li>Designed a next-token prediction training pipeline with random sequence batching, configurable hyperparameters, checkpoint restoration, and training-loss logging.</li>
+    <li>Used memory-mapped NumPy datasets to efficiently train on tokenized corpora without loading the complete dataset into memory.</li>
+    <li>Enabled hardware-accelerated model training on Apple Silicon through PyTorch Metal Performance Shaders support.</li>
+  </ul>
+</div>
+
+    <div class="project">
       <h3>TrashAuto — Autonomous Garbage Collection Rover</h3>
       <img src="images/trashauto_fusion_render.png"
          alt="Fusion 360 design of TrashAuto rover"
