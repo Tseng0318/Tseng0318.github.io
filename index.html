@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>KuoWei Tseng | Engineering Portfolio</title>
+  <title>KuoWei Tseng | Researcher — Machine Learning & Edge Systems</title>
 
   <style>
     body {
@@ -127,7 +127,10 @@
       <div>
         <h1>KuoWei Tseng</h1>
         <div class="muted" style="margin-top: 6px;">
-          ML engineer · edge deployment · OOD robustness · embedded systems
+          Researcher · machine learning · representation learning · OOD robustness · edge &amp; embedded systems
+        </div>
+        <div class="muted" style="margin-top: 4px; font-size: 15px;">
+          Electrical Engineering, University of Calgary
         </div>
 
         <div style="margin-top:12px;">
@@ -136,9 +139,9 @@
         </div>
 
         <div class="buttons">
-          <a class="btn primary" href="/Resume.pdf">Download Resume</a>
-          <a class="btn" href="https://www.zerogcoating.com/">Capstone Project</a>
-          <a class="btn" href="/Feasibility%20of%20recent%20peptide%20therapy.pdf">Publication</a>
+          <a class="btn primary" href="https://scholar.google.ca/citations?user=GNVpOEYAAAAJ&hl=en">Google Scholar</a>
+          <a class="btn" href="/Resume.pdf">CV / Resume</a>
+          <a class="btn" href="/Feasibility%20of%20recent%20peptide%20therapy.pdf">Publication (PDF)</a>
           <a class="btn" href="https://github.com/Tseng0318">GitHub</a>
           <a class="btn" href="https://www.linkedin.com/in/kuowei-tseng-071079220">LinkedIn</a>
         </div>
@@ -146,22 +149,51 @@
     </div>
 
     <!-- About -->
-    <h2>About</h2>
+    <h2>Biography</h2>
     <p class="muted">
-      Hi, I'm David — an Electrical Engineering undergrad at the University of Calgary (Digital Engineering minor).
+      I am an Electrical Engineering undergraduate at the University of Calgary (Digital Engineering minor), working at the intersection of machine learning and resource-constrained hardware. My research studies how learned representations behave under distribution shift and how reliable models can be deployed on the edge — building systems that <em>know what they don't know</em>.
     </p>
     <p class="muted">
-      My ML work centres on reliability: I build systems that know what they don't know. My capstone produced an edge-deployed corrosion detector with cosine-similarity OOD rejection (95.6% accuracy, 0.873 AUROC), and a parallel research project benchmarked SimCLR, SupCon, BYOL, and ViT on the same task — finding that self-supervised representations outperform supervised ones under domain shift and enable early-exit inference that cuts ~83.5% of samples at maintained accuracy.
+      My core line of work compares supervised and self-supervised representation learning (SimCLR, SupCon, BYOL, ViT) for out-of-distribution robustness, showing that self-supervised representations degrade more gracefully under domain shift and support early-exit inference that skips ~83.5% of samples at maintained accuracy. This work grounded an edge-deployed corrosion-detection system that uses cosine-similarity prototype matching for unknown-class rejection (95.6% accuracy, 0.873 AUROC).
     </p>
     <p class="muted">
-      On the hardware side I've built autonomous rovers integrating LiDAR, IMU, encoders, and edge-deployed models on Jetson and Raspberry Pi platforms, designed RTL in SystemVerilog on Artix-7 FPGAs, and self-studied analog IC design using Cadence Virtuoso with a TSMC PDK. I also hold an R&D internship background in semiconductor device characterisation from Lision Technology in Taiwan.
+      Alongside ML, I work on the systems these models run on: autonomous rovers integrating LiDAR, IMU, and encoders with edge inference on Jetson and Raspberry Pi; RTL design in SystemVerilog on Artix-7 FPGAs; and analog IC design in Cadence Virtuoso with a TSMC PDK. I previously held an R&D internship in semiconductor device characterization at Lision Technology (Taiwan).
     </p>
     <p class="muted">
-      Longer term I want to work on ML systems that are both scientifically interpretable and deployable at the edge — bridging intelligent algorithms with real physical constraints.
+      My longer-term research goal is to develop machine-learning systems that are both scientifically interpretable and deployable under real physical constraints.
     </p>
 
-    <!-- Featured Projects -->
-    <h2>Featured Projects</h2>
+    <!-- Research Interests -->
+    <h2>Research Interests</h2>
+    <div style="margin-top: 12px;">
+      <span class="tag">Representation learning</span>
+      <span class="tag">Self-supervised learning</span>
+      <span class="tag">Out-of-distribution detection &amp; robustness</span>
+      <span class="tag">Domain shift</span>
+      <span class="tag">Efficient / edge ML inference</span>
+      <span class="tag">Model compression</span>
+      <span class="tag">Early-exit networks</span>
+      <span class="tag">Embedded &amp; hardware-aware ML</span>
+    </div>
+
+    <!-- Publications -->
+    <h2>Publications</h2>
+    <p class="muted" style="margin-bottom: 4px;">
+      Full list and citation metrics on
+      <a href="https://scholar.google.ca/citations?user=GNVpOEYAAAAJ&hl=en">Google Scholar</a>.
+    </p>
+    <ol style="margin: 14px 0 0 20px; padding: 0;">
+      <li class="muted" style="margin-bottom: 14px;">
+        KF. Tseng, <strong>KW. Tseng</strong>, HY. Liao, PH. Chen.
+        &ldquo;Feasibility of recent peptide therapy for ischemic stroke: a comprehensive exploration.&rdquo;
+        <em>Journal of Pharmacological Sciences</em>, 2025.<br>
+        <span style="font-size: 13px;">Contribution: data analysis and computational methodology. ·
+        <a href="/Feasibility%20of%20recent%20peptide%20therapy.pdf">PDF</a></span>
+      </li>
+    </ol>
+
+    <!-- Research Projects -->
+    <h2>Research Projects &amp; Software</h2>
 
     <div class="project">
       <h3>Autonomous Surface Inspection & Coating Rover (Capstone)</h3>
@@ -353,15 +385,6 @@
         <li>Analysing threshold voltage, parasitic capacitances, and other device-level parameters to develop real-world performance intuition.</li>
       </ul>
     </div>
-
-    <!-- Publication -->
-    <h2>Publication</h2>
-    <p class="muted">
-      <strong>Feasibility of recent peptide therapy for ischemic stroke</strong><br>
-      K.-F. Tseng, <strong>K.-W. Tseng</strong>, et al. · Journal of Pharmacological Sciences (2026)<br>
-      Contribution: data analysis and computational methodology<br>
-      <a href="/Feasibility%20of%20recent%20peptide%20therapy.pdf">View paper (PDF)</a>
-    </p>
 
     <!-- Certifications -->
     <h2>Certifications</h2>
